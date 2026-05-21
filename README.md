@@ -1,4 +1,4 @@
-# Espresso Machine Simulator
+# EspressoMachine ☕⚙️
 
 A feature-rich C# espresso machine simulator built with an ECS-inspired architecture.
 
@@ -102,7 +102,7 @@ git clone <your-repo-url>
 ## Navigate to the Project
 
 ```bash
-cd EspressoMachineSimulator
+cd EspressoMachine
 ```
 
 ## Run the Application
