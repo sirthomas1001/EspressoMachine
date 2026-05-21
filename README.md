@@ -1,4 +1,4 @@
-# EspressoMachine ☕⚙️
+# EspressoMachine
 
 A feature-rich C# espresso machine simulator built with an ECS-inspired architecture.
 
