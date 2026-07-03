@@ -1,159 +1,105 @@
 # EspressoMachine
 
-A feature-rich C# espresso machine simulator built with an ECS-inspired architecture.
+A console-based espresso machine simulator written in C# using an Entity Component System-inspired architecture.
 
-This project models a smart café-style ordering system with customizable drinks, inventory tracking, checkout workflows, editable carts, account balances, and modular gameplay-inspired systems architecture.
+This project models a small commercial espresso machine with drink ordering, cart management, inventory tracking, payments, cleaning, refilling, and sales reporting. The goal was to practice software architecture by separating data into components and behavior into systems instead of placing all logic inside one large machine class.
 
----
+## Features
 
-# Features
+* Menu system with multiple drink types and cup sizes
+* Custom drink options including froth, extra shots, and sugar
+* Cart creation, editing, removal, and checkout
+* Inventory tracking for water, beans, milk, and cups
+* Account balance and payment handling
+* Machine maintenance through cleaning and refilling
+* Sales reporting with total drinks made and revenue
+* ECS-inspired organization using entities, components, and systems
 
-## Drink Ordering
-- Espresso
-- Americano
-- Latte
-- Cappuccino
-- Mocha
+## Architecture
 
-## Drink Customization
-- Small / Medium / Large cup sizes
-- Froth add-on
-- Extra espresso shot
-- Sugar option
+The project is organized around a simple ECS-style structure:
 
-## Cart System
-- Add multiple drinks
-- View cart totals
-- Edit drinks already in cart
-- Remove drinks from cart
-- Clear entire cart
+### Entities
 
-## Payment System
-- Customer account balance
-- Add funds to account
-- Checkout validation
-- Revenue tracking
+Entities are lightweight identifiers used to represent objects in the simulation.
 
-## Machine Simulation
-- Water tracking
-- Bean tracking
-- Milk tracking
-- Cup inventory
-- Cleaning requirements
-- Refill system
+Current entities include:
 
-## ECS-Inspired Architecture
+* Espresso machine
+* Customer
 
-The application is structured around:
-- **Entities** → IDs only
-- **Components** → data only
-- **Systems** → logic only
+### Components
 
-### Systems Included
-- PricingSystem
-- BrewingSystem
-- PaymentSystem
-- CartSystem
-- MaintenanceSystem
+Components store data only.
 
----
+Examples:
 
-# Architecture Overview
+* `InventoryComponent` — stores water, beans, milk, and cup counts
+* `AccountComponent` — stores customer balance
+* `MachineStatsComponent` — tracks revenue, drinks made, and cleaning status
+* `DrinkOrderComponent` — stores drink selection and customization data
 
-```text
-Entity
- ├── Components
- │    ├── InventoryComponent
- │    ├── AccountComponent
- │    ├── MachineStatsComponent
- │    └── DrinkOrderComponent
- │
- └── Systems
-      ├── PricingSystem
-      ├── BrewingSystem
-      ├── PaymentSystem
-      ├── CartSystem
-      └── MaintenanceSystem
-```
+### Systems
 
-This design separates application state from business logic and makes the simulator easier to scale and maintain.
+Systems contain behavior and operate on component data.
 
----
+Examples:
 
-# Technologies Used
+* `PricingSystem` — calculates drink prices
+* `CartSystem` — manages cart totals and cart state
+* `BrewingSystem` — checks inventory and brews drinks
+* `PaymentSystem` — handles account payments and revenue
+* `MaintenanceSystem` — refills supplies and cleans the machine
 
-- C#
-- .NET
-- Console Application
-- ECS-inspired architecture
-- Object-Oriented Programming
-- Data-Oriented Design principles
+## What I Learned
 
----
+This project helped me practice:
 
-# Running the Project
+* Separating data from behavior
+* Modeling real-world state with components
+* Designing modular systems with clear responsibilities
+* Managing user input and validation in a console application
+* Applying object-oriented programming principles without overloading a single class
+* Thinking about software architecture beyond basic procedural flow
 
-## Clone the Repository
+## Technologies Used
+
+* C#
+* .NET
+* Console application architecture
+* Entity Component System-inspired design
+
+## How to Run
+
+1. Clone the repository.
 
 ```bash
-git clone <your-repo-url>
+git clone <repository-url>
 ```
 
-## Navigate to the Project
+2. Navigate into the project folder.
 
 ```bash
-cd EspressoMachine
+cd <project-folder>
 ```
 
-## Run the Application
+3. Run the project.
 
 ```bash
 dotnet run
 ```
 
----
+## Future Improvements
 
-# Example Workflow
+Planned improvements include:
 
-```text
-1. View Menu
-2. Add Drink to Cart
-3. Customize Drink
-4. Edit Existing Orders
-5. Checkout
-6. Brew Drinks
-7. Track Inventory & Revenue
-```
+* Refactoring the ECS structure into a more generic component storage system
+* Adding unit tests for pricing, cart, brewing, and payment logic
+* Adding save/load support
+* Improving the console UI
+* Adding more detailed simulation behavior
+* Creating documentation or diagrams explaining the system flow
 
----
+## Project Status
 
-# Future Improvements
-
-- JSON save/load system
-- SQLite persistence
-- GUI frontend with MAUI or WPF
-- Multi-customer simulation
-- Employee/admin mode
-- Async brewing queue
-- REST API with ASP.NET Core
-- Unit testing suite
-- Telemetry dashboard
-
----
-
-# Why This Project?
-
-This project started as a simple console application and evolved into a larger systems-oriented simulation focused on:
-- modular architecture
-- scalability
-- user workflow design
-- data management
-- maintainability
-
-The goal was to explore how game-engine-inspired ECS patterns can be adapted to business-style application logic in C#.
-
----
-
-# License
-
-MIT License
+This project is functional and serves as an architecture-focused learning project. It is not intended to be a production espresso system, but rather a demonstration of ECS-style design, modular systems, and state management in C#.
